@@ -54,5 +54,5 @@ This project is licensed under the **MIT License** – feel free to use and modi
 
 ## 📬 Contact
 For any inquiries, feel free to reach out:
-- LinkedIn: Your LinkedIn Profile
-- Email: your-email@gmail.com
+- LinkedIn: https://www.linkedin.com/in/varun-karthik-kartala-001a90144/
+- Email: kartal.varun@gmail.com
