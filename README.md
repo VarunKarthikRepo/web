@@ -20,7 +20,7 @@ This repository serves **educational purposes**, aiming to provide insights into
 To explore and use the contents of this repository:
 1. Clone the repo:
    ```sh
-   git clone https://github.com/your-username/repository-name.git
+   git clone https://github.com/VarunKarthikRepo/web.git
 2. Navigate to the project directory:
    ```sh
    cd repository-name
