@@ -17,6 +17,7 @@ A lightweight and interactive **Geographic Information System (GIS) web applicat
   - **OpenStreetMap Standard**
   - **OSM-HOT** (Humanitarian style)
   - **OpenTopoMap**
+  **Note**: Refer to [THIS](https://leafletjs.com/examples/layers-control/) link for more information.
 - The layers come with **predefined Places of Interest (POIs)** such as **parks** and **hospitals**.
 - Clicking on these POIs **adds markers** on the map at their locations.
 
@@ -38,8 +39,8 @@ A lightweight and interactive **Geographic Information System (GIS) web applicat
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/your-username/react-gis-app.git
-   cd react-gis-app
+   git clone https://github.com/VarunKarthikRepo/web.git
+   cd REACT/react-gis-app
    ```
 2. **Install Dependencies**
     ```bash
@@ -96,14 +97,14 @@ Contributions are welcome!
 
 ## 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT** License.
 
 ---
 
 ## 📬 Contact
 For any questions or suggestions:
-- LinkedIn: Your LinkedIn
-- Email: your-email@gmail.com
+- LinkedIn: [Varun Karthik](https://www.linkedin.com/in/varun-karthik-kartala-001a90144/)
+- Email: kartal.varun@gmail.com
 
 ---
 
@@ -113,7 +114,7 @@ For any questions or suggestions:
 
 
 
-# Running the Application
+# Application Created using create-react-app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -159,27 +160,3 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -14,6 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { fetchAddresses } from "../../services/apiService";
 
 const SearchButton = ({ onSelectCoordinates }) => {
   const [searchBtnClicked, setSearchButtonClicked] = useState(false);
@@ -33,18 +34,14 @@ const SearchButton = ({ onSelectCoordinates }) => {
   };
 
   const handleListItemClick = (item) => {
-    console.log("Clicked item lat:", item.lat);
-    console.log("Clicked item lon:", item.lon);
+    // console.log("Clicked item lat:", item.lat);
+    // console.log("Clicked item lon:", item.lon);
     onSelectCoordinates(item);
   };
 
   const handleFindAddress = async () => {
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-      addressText
-    )}`;
     try {
-      const response = await fetch(url);
-      const data = await response.json();
+      const data = await fetchAddresses(addressText);
       if (data.length > 0) {
         const processedList = data.map((address) => {
           return {
@@ -68,12 +65,8 @@ const SearchButton = ({ onSelectCoordinates }) => {
       <Box display={"flex"} sx={{ height: "40px" }}>
         <Tooltip title="Search Address" placement="right">
           <Button
+            className="search-button"
             variant="contained"
-            sx={{
-              width: "50px",
-              backgroundColor: "#222f3c",
-              ":hover": { backgroundColor: "#414d5a" },
-            }}
             onClick={handleSearchButtonClick}
           >
             <SearchIcon />
@@ -83,6 +76,7 @@ const SearchButton = ({ onSelectCoordinates }) => {
           <>
             <Box display={"flex"} flexDirection={"column"}>
               <Paper
+              className="search-box-paper"
                 component={"form"}
                 sx={{
                   display: "flex",

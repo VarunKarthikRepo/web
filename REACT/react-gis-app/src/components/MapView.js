@@ -5,9 +5,11 @@ import L from "leaflet";
 import PlaceIcon from "@mui/icons-material/Place";
 import { renderToString } from "react-dom/server";
 import { Box } from "@mui/material";
+import config from "../config";
+import { HospitalsData, ParksData } from "../data/staticData";
 
-const center = [17.387, 78.491];
-const zoomLevel = 11;
+const center = config.default_map_center;
+const zoomLevel = config.defauly_map_zoom_level;
 
 const flyToLocation = (map, coordinates) => {
   let position = null;
@@ -44,11 +46,11 @@ const handleResetClicked = (map, resetClicked, setResetClicked) => {
 
 const handleMapLayerChange = (map, mapLayer, onMapLayerChange) => {
   if (mapLayer === "osm") {
-    onMapLayerChange("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+    onMapLayerChange(config.osm_url);
   } else if (mapLayer === "osm-hot") {
-    onMapLayerChange("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png");
+    onMapLayerChange(config.osm_hot_url);
   } else if (mapLayer === "otop") {
-    onMapLayerChange("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png");
+    onMapLayerChange(config.osm_topo_url);
   }
 };
 
@@ -64,33 +66,10 @@ const handlePoiData = (map, selectedPoi) => {
       iconSize: [40, 40],
       iconAnchor: [20, 40],
     });
-    position = [
-      {
-        name: "Sanjeevaiah Park",
-        location: [17.385, 78.486],
-        icon: parkIcon,
-      },
-      {
-        name: "Lubmini Park",
-        location: [17.41, 78.472],
-        icon: parkIcon,
-      },
-      {
-        name: "KBR Park",
-        location: [17.420, 78.419],
-        icon: parkIcon,
-      },
-      {
-        name: "Botanical Gardens",
-        location: [17.455, 78.360],
-        icon: parkIcon,
-      },      
-      {
-        name: "Nehru Zoological Park",
-        location: [17.350, 78.452],
-        icon: parkIcon,
-      },
-    ];
+    position = ParksData.map((park) => ({
+      ...park,
+      icon: parkIcon,
+    }));
   }
 
   if (selectedPoi.includes("hospitals")) {
@@ -103,34 +82,11 @@ const handlePoiData = (map, selectedPoi) => {
       iconSize: [40, 40],
       iconAnchor: [20, 40],
     });
-    position = [
-      {
-        name: "KIMS Hospital",
-        location: [17.427, 78.404],
-        icon: hospitalIcon,
-      },
-      {
-        name: "Apollo Hospitals, Jubilee Hills",
-        location: [17.415, 78.413],
-        icon: hospitalIcon,
-      },
-      {
-        name: "Kamineni Hospitals, LB Nagar",
-        location: [17.351, 78.555],
-        icon: hospitalIcon,
-      },
-      {
-        name: "Osmania General Hopsital",
-        location: [17.371, 78.473],
-        icon: hospitalIcon,
-      },      
-      {
-        name: "Gandhi Hopsital",
-        location: [17.423, 78.504],
-        icon: hospitalIcon,
-      },
-      ...position
-    ];
+    const hospitalsPosition = HospitalsData.map((hospital) => ({
+      ...hospital,
+      icon: hospitalIcon,
+    }));
+    position = [...hospitalsPosition, ...position];
   }
 
   return position;
@@ -180,9 +136,7 @@ const MapView = ({
   mapLayer,
   selectedPoi,
 }) => {
-  const [mapLayerUrl, setMapLayerUrl] = useState(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  );
+  const [mapLayerUrl, setMapLayerUrl] = useState(config.osm_url);
 
   return (
     <>
@@ -193,10 +147,7 @@ const MapView = ({
           scrollWheelZoom={false}
           zoomControl={false}
         >
-          <TileLayer
-            url={mapLayerUrl}
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          />
+          <TileLayer url={mapLayerUrl} attribution={config.osm_attribution} />
           <MapHandler
             coordinates={coordinates}
             resetClicked={resetClicked}
