@@ -66,7 +66,10 @@ A lightweight and interactive **Geographic Information System (GIS) web applicat
 
 ## 📸 Screenshots
 
-- Add screenshots or demo GIFs here showing the map in action
+![image](https://github.com/user-attachments/assets/5a703092-0a16-4855-9d9e-e962e3f6ca50)
+
+
+https://github.com/user-attachments/assets/e967a8e1-afcf-4a21-9bd3-f3a1c00f0b05
 
 ---
 
